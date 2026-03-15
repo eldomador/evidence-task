@@ -1,0 +1,10 @@
+---
+description: Core coding standards and language preferences
+alwaysApply: true
+---
+
+# General standards
+
+- Use ES6+ and arrow functions.
+- Prefer `useMemo` and `useCallback` where they avoid unnecessary re-renders or recomputation.
+- Code, comments, file names, and commit messages: **English**. User-facing UI copy may be in Polish.

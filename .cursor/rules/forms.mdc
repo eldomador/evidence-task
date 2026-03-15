@@ -1,0 +1,11 @@
+---
+description: Form validation and React Hook Form patterns
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Forms
+
+- Use **Zod** for validation schemas and **React Hook Form** with `@hookform/resolvers/zod` for integration.
+- Derive form types from the schema: `type FormValues = z.infer<typeof mySchema>`.
+- Keep a single source of truth: one schema, one type; use the same schema for validation and typing.

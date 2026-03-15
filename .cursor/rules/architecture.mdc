@@ -1,0 +1,10 @@
+---
+description: Feature-based folder structure
+alwaysApply: true
+---
+
+# Architecture
+
+- **src/app/** – routing, root layout, providers.
+- **src/features/** – one folder per feature (e.g. `cistercian`); put domain logic, UI, and feature-specific types there.
+- **src/shared/** – shared UI (`shared/ui`), libs (`shared/lib`), schemas (`shared/schemas`), types, constants. Use for code used by more than one feature or app.
