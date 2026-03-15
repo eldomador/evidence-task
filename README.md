@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+# Cistercian numerals
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small web app that converts decimal numbers (1–9999) into **Cistercian numerals** and lets you download the result as an SVG.
 
-Currently, two official plugins are available:
+[Cistercian numerals](https://en.wikipedia.org/wiki/Cistercian_numerals) are a medieval notation where a single glyph represents a number from 1 to 9,999 using a central vertical stave and strokes in four quadrants (units, tens, hundreds, thousands).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+- Enter any natural number from **1 to 9999**
+- See the corresponding Cistercian numeral rendered as **SVG** (live as you type)
+- **Download** the glyph as an SVG file
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+React 19, Vite, TypeScript, Tailwind CSS, shadcn/ui, React Hook Form, Zod.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Install & run
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Requirements:** Node.js 20.19+ or 22.12+ (see [.nvmrc](.nvmrc) or [.node-version](.node-version)).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Install dependencies
+npm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Development (with hot reload)
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+After `npm run dev`, open the URL shown in the terminal (usually `http://localhost:5173`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- `src/app/` – root layout and app shell
+- `src/features/cistercian/` – Cistercian logic (digit paths, SVG) and UI (form, preview)
+- `src/shared/` – shared UI components, schemas, utilities
+
+## Scripts
+
+| Command     | Description                |
+| ----------- | -------------------------- |
+| `npm run dev`     | Start dev server           |
+| `npm run build`   | Type-check and production build |
+| `npm run preview` | Serve the production build |
+| `npm run lint`    | Run ESLint                 |
